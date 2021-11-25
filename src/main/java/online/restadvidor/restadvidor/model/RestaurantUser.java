@@ -18,6 +18,7 @@ public class RestaurantUser {
     @Id
     private long userId;
     private String username;
+    private String email;
     private String userpass;
     private String descriptionText;
     private String profilePic;
