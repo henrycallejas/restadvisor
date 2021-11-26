@@ -1,7 +1,6 @@
 package online.restadvidor.restadvidor.controllers;
 
 import online.restadvidor.restadvidor.model.RestSchedule;
-import online.restadvidor.restadvidor.model.Restaurant;
 import online.restadvidor.restadvidor.services.RestScheduleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -10,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@CrossOrigin(origins = "*")
 @RequestMapping("schedules")
 public class RestScheduleController {
 

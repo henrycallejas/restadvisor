@@ -1,8 +1,6 @@
 package online.restadvidor.restadvidor.controllers;
 
-import online.restadvidor.restadvidor.model.Opinion;
 import online.restadvidor.restadvidor.model.Restaurant;
-import online.restadvidor.restadvidor.services.OpinionService;
 import online.restadvidor.restadvidor.services.RestaurantService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -11,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@CrossOrigin(origins = "*")
 @RequestMapping("restaurants")
 public class RestaurantController {
 

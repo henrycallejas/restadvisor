@@ -1,17 +1,16 @@
 package online.restadvidor.restadvidor.model;
 
 import lombok.AllArgsConstructor;
+import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
-import java.text.DecimalFormat;
 import java.util.Date;
 
-@Getter
-@Setter
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
@@ -24,11 +23,11 @@ public class Opinion {
     private String commentText;
     private Date publishDate;
     private BigDecimal score;
-    @OneToOne
-    @JoinColumn(name="userId")
-    private RestaurantUser userId;
-    @OneToOne
-    @JoinColumn(name="branchId")
-    private BranchOffice branchId;
+    //@OneToOne
+    //@JoinColumn(name="userId")
+    private long userId;
+    //@OneToOne
+    //@JoinColumn(name="branchId")
+    private long branchId;
 
 }

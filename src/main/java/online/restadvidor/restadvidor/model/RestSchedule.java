@@ -1,14 +1,14 @@
 package online.restadvidor.restadvidor.model;
 
 import lombok.AllArgsConstructor;
+import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
 
-@Getter
-@Setter
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
@@ -16,11 +16,12 @@ import javax.persistence.*;
 
 public class RestSchedule {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long scheduleId;
     private String openHour;
     private String closeHour;
-    @OneToOne
-    @JoinColumn(name="workDayId")
-    private WorkDay workDayId;
+    //@OneToOne
+    //@JoinColumn(name="workDayId")
+    private long workDayId;
 
 }

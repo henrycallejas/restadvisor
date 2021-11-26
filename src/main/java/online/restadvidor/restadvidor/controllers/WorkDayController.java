@@ -1,8 +1,6 @@
 package online.restadvidor.restadvidor.controllers;
 
-import online.restadvidor.restadvidor.model.Rol;
 import online.restadvidor.restadvidor.model.WorkDay;
-import online.restadvidor.restadvidor.services.RolService;
 import online.restadvidor.restadvidor.services.WorkDayService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -11,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@CrossOrigin(origins = "*")
 @RequestMapping("workdays")
 public class WorkDayController {
     @Autowired

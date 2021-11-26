@@ -1,14 +1,14 @@
 package online.restadvidor.restadvidor.model;
 
 import lombok.AllArgsConstructor;
+import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
 
-@Getter
-@Setter
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
@@ -16,6 +16,7 @@ import javax.persistence.*;
 
 public class RestaurantUser {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long userId;
     private String username;
     private String email;
@@ -24,8 +25,8 @@ public class RestaurantUser {
     private String profilePic;
     private String firstName;
     private String lastname;
-    @OneToOne
-    @JoinColumn(name="rolId")
-    private Rol rolId;
+    //@OneToOne
+    //@JoinColumn(name="rolId")
+    private long rolId;
 
 }
