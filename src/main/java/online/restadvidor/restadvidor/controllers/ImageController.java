@@ -51,7 +51,7 @@ public class ImageController {
     	return service.getByBranchId(branchId);
     }
     
-    @PostMapping("uploadfile/{branchId}")
+    @PostMapping("upload/{branchId}")
     public ResponseEntity<String> uploadFiles(@RequestParam("files") List<MultipartFile> files, @PathVariable("branchId") long branchId){
     	try {
 			service.uploadAll(files, branchId);
