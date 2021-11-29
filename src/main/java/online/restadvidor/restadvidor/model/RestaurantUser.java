@@ -27,6 +27,8 @@ public class RestaurantUser {
     private String profilePic;
     private String firstName;
     private String lastname;
+    private boolean active = false;
+    private String confirm;
     //@OneToOne
     //@JoinColumn(name="rolId")
     private long rolId;
@@ -150,6 +152,27 @@ public class RestaurantUser {
 	public void setRoles(Set<Role> roles) {
 		this.roles = roles;
 	}
+
+
+	public boolean isActive() {
+		return active;
+	}
+
+
+	public void setActive(boolean active) {
+		this.active = active;
+	}
+
+
+	public String getConfirm() {
+		return confirm;
+	}
+
+
+	public void setConfirm(String confirm) {
+		this.confirm = confirm;
+	}
     
+	
     
 }

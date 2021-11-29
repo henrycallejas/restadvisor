@@ -22,14 +22,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import online.restadvidor.restadvidor.model.ERole;
-import online.restadvidor.restadvidor.model.EmailConfirm;
 import online.restadvidor.restadvidor.model.RestaurantUser;
 import online.restadvidor.restadvidor.model.Role;
 import online.restadvidor.restadvidor.request.LoginRequest;
 import online.restadvidor.restadvidor.request.SignupRequest;
 import online.restadvidor.restadvidor.response.JwtResponse;
 import online.restadvidor.restadvidor.response.MessageResponse;
-import online.restadvidor.restadvidor.services.EmailConfirmationService;
 import online.restadvidor.restadvidor.services.UserDetailsImpl;
 import online.restadvidor.restadvidor.utils.EmailConfirmation;
 import online.restadvidor.restadvidor.irepository.*;
@@ -39,9 +37,7 @@ import online.restadvidor.restadvidor.security.*;
 @RestController
 @RequestMapping("/api/auth")
 public class AuthController {
-	
-	@Autowired
-	EmailConfirmationService emailService;
+
 	
 	@Autowired
 	AuthenticationManager authenticationManager;
@@ -129,22 +125,22 @@ public class AuthController {
 		}
 
 		user.setRoles(roles);
-		
+		user.setActive(false);
 		//comienza la logica del email
 		
 		RestaurantUser newUser = userRepository.save(user);
-		EmailConfirm emailConfirm = new EmailConfirm();
-		emailConfirm.setActive(false);
-		emailConfirm.setUserId(newUser.getUserId());
+		//EmailConfirm emailConfirm = new EmailConfirm();
+		//emailConfirm.setActive(false);
+		//emailConfirm.setUserId(newUser.getUserId());
 		
 		try {
 			String confirmHash = EmailConfirmation.sendConfirmationLink(newUser.getEmail());
 			TimeUnit.SECONDS.sleep(5);
-			emailConfirm.setConfirm(confirmHash);
-			emailService.save(emailConfirm);
+			newUser.setConfirm(confirmHash);
+			newUser.setActive(false);
 			
 			//TERMINA LA LOGICA DEL EMAIL
-			userRepository.save(user);
+			userRepository.save(newUser);
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

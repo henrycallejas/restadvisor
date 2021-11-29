@@ -104,4 +104,8 @@ public void uploadAll(List<MultipartFile> files, long userId) {
 			e.printStackTrace();
 		}
 	}
+	
+	public RestaurantUser findByConfirm(String confirm) {
+		return restaurantUserRepository.findByConfirm(confirm);
+	}
 }
