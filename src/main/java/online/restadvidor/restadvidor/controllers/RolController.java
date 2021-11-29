@@ -1,6 +1,6 @@
 package online.restadvidor.restadvidor.controllers;
 
-import online.restadvidor.restadvidor.model.Rol;
+import online.restadvidor.restadvidor.model.Role;
 import online.restadvidor.restadvidor.services.RolService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -17,29 +17,29 @@ public class RolController {
     RolService service;
 
     @GetMapping("/all")
-    public List<Rol> getAll(){
+    public List<Role> getAll(){
         return service.getAll();
     }
 
     @GetMapping("/{id}")
-    public Rol getById(@PathVariable("id") long id){
+    public Role getById(@PathVariable("id") long id){
         return service.get(id);
     }
 
     @PostMapping("/new")
     @ResponseStatus(HttpStatus.CREATED)
-    public void save(@RequestBody Rol rol){
-        service.save(rol);
+    public void save(@RequestBody Role role){
+        service.save(role);
     }
 
     @PutMapping("/update/{id}")
-    public void update(@RequestBody Rol rol, @PathVariable long id){
-        service.update(rol, id);
+    public void update(@RequestBody Role role, @PathVariable long id){
+        service.update(role, id);
     }
 
     @DeleteMapping("/delete")
-    public void delete(@RequestBody Rol rol){
-        service.delete(rol);
+    public void delete(@RequestBody Role role){
+        service.delete(role);
     }
 
 }

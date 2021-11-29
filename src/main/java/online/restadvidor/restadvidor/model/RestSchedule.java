@@ -23,5 +23,9 @@ public class RestSchedule {
     //@OneToOne
     //@JoinColumn(name="workDayId")
     private long workDayId;
-
+    
+    @OneToOne
+    @JoinColumn(name="restaurantId")
+    private Restaurant restaurantId;
+    
 }

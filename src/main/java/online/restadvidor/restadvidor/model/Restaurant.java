@@ -25,5 +25,6 @@ public class Restaurant {
     //@OneToOne
     //@JoinColumn(name="userId")
     private long userId;
+    
 
 }
